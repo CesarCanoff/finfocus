@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const SearchFormContainer = styled.form`
   display: flex;
@@ -29,12 +29,18 @@ export const SearchFormContainer = styled.form`
     color: ${({ theme }) => theme.YELLOW_300};
     font-weight: bold;
     border-radius: 6px;
+    cursor: pointer;
 
-    &:hover {
+    &:disabled {
+      opacity: 0.2;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
       background-color: ${({ theme }) => theme.YELLOW_300};
       border: 1px solid ${({ theme }) => theme.YELLOW_300};
       color: ${({ theme }) => theme.WHITE};
       transition: background-color 0.2s color 0.2s border-color 0.2s;
     }
   }
-`;
+`

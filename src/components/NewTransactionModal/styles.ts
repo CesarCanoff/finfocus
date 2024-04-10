@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
-import * as Dialog from "@radix-ui/react-dialog";
-import * as RadioGroup from "@radix-ui/react-radio-group";
+import * as Dialog from '@radix-ui/react-dialog'
+import * as RadioGroup from '@radix-ui/react-radio-group'
 
 export const Overlay = styled(Dialog.Overlay)`
   position: fixed;
@@ -10,7 +10,7 @@ export const Overlay = styled(Dialog.Overlay)`
   height: 100vh;
 
   background-color: rgba(0, 0, 0, 0.75);
-`;
+`
 
 export const Content = styled(Dialog.Content)`
   min-width: 32rem;
@@ -42,7 +42,7 @@ export const Content = styled(Dialog.Content)`
       }
     }
 
-    button[type="submit"] {
+    button[type='submit'] {
       height: 50px;
       border: 0;
       background-color: ${({ theme }) => theme.YELLOW_500};
@@ -53,13 +53,18 @@ export const Content = styled(Dialog.Content)`
       margin-top: 1.5rem;
       cursor: pointer;
 
-      &:hover {
+      &:disabled {
+        opacity: 0.2;
+        cursor: not-allowed;
+      }
+
+      &:not(:disabled):hover {
         background-color: ${({ theme }) => theme.YELLOW_700};
         transition: background-color 0.2s;
       }
     }
   }
-`;
+`
 
 export const CloseButton = styled(Dialog.Close)`
   position: absolute;
@@ -71,21 +76,21 @@ export const CloseButton = styled(Dialog.Close)`
   line-height: 0;
   cursor: pointer;
   color: ${({ theme }) => theme.GRAY_500};
-`;
+`
 
 export const TransactionType = styled(RadioGroup.Root)`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-top: 0.4rem;
-`;
+`
 
 interface TransactionTypeButtonProps {
-  variant: "income" | "outcome";
+  variant: 'income' | 'outcome'
 }
 
 export const TransactionTypeButton = styled(
-  RadioGroup.Item
+  RadioGroup.Item,
 )<TransactionTypeButtonProps>`
   background-color: ${({ theme }) => theme.GRAY_700};
   padding: 1rem;
@@ -100,18 +105,18 @@ export const TransactionTypeButton = styled(
 
   svg {
     color: ${({ theme, variant }) =>
-      variant === "income" ? theme.GREEN_400 : theme.RED_500};
+      variant === 'income' ? theme.GREEN_400 : theme.RED_500};
   }
 
-  &[data-state="unchecked"]:hover {
+  &[data-state='unchecked']:hover {
     transition: background-color 0.2s;
     background-color: ${({ theme }) => theme.GRAY_600};
   }
 
-  &[data-state="checked"] {
+  &[data-state='checked'] {
     ${({ theme, variant }) => css`
       color: ${theme.WHITE};
-      background-color: ${variant === "income"
+      background-color: ${variant === 'income'
         ? theme.GREEN_400
         : theme.RED_700};
     `}
@@ -120,4 +125,4 @@ export const TransactionTypeButton = styled(
       color: ${({ theme }) => theme.WHITE};
     }
   }
-`;
+`

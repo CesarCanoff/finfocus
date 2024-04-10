@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 export const SummaryContainer = styled.section`
   width: 100%;
@@ -11,10 +11,10 @@ export const SummaryContainer = styled.section`
   gap: 2rem;
 
   margin-top: -5rem;
-`;
+`
 
 interface SummaryCardProps {
-  varient?: "yellow";
+  varient?: 'yellow'
 }
 
 export const SummaryCard = styled.div<SummaryCardProps>`
@@ -40,8 +40,8 @@ export const SummaryCard = styled.div<SummaryCardProps>`
   }
 
   ${({ theme, varient }) =>
-    varient === "yellow" &&
+    varient === 'yellow' &&
     css`
       color: ${theme.YELLOW_300};
     `}
-`;
+`
